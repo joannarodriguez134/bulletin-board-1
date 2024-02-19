@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 
     if the_post.valid?
       the_post.save
-      redirect_to("/boards/<%= posts.board.at(0).id %>", { :notice => "Post created successfully." }, allow_other_host: true)
+      redirect_to("/boards/#{the_post.board_id}", { :notice => "Post created successfully." })
     else
       redirect_to("/boards", { :alert => the_post.errors.full_messages.to_sentence }, allow_other_host: true)
     end
