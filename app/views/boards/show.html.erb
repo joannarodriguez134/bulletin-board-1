@@ -107,24 +107,42 @@
 
 <h2> Active Posts </h2>
 
-<dl>
-  <% @the_board.posts.each do |post| %>
-    <dt>Title</dt>
-    <dd><%= post.title %></dd>
+<table border="1">
+      <tr>
+        <th>
+          Title
+        </th>
 
-    <dt>Body</dt>
-    <dd><%= post.body %></dd>
+        <th>
+          Body
+        </th>
 
-    <dt>Expires on</dt>
-    <dd><%= post.expires_on %></dd>
+        <th>
+          Posted on
+        </th>
 
-    <dt>Board</dt>
-    <dd><%= post.board_id %></dd>
+        <th>
+          Expires on
+        </th>
+      </tr>
 
-    <dt>Created at</dt>
-    <dd><%= time_ago_in_words(post.created_at) %> ago</dd>
+       <% @the_board.posts.each do |post| %>
+      <tr>
+        <td>
+         <%= post.title %>
+        </td>
 
-    <dt>Updated at</dt>
-    <dd><%= time_ago_in_words(post.updated_at) %> ago</dd>
-  <% end %>
-</dl>
+        <td>
+          <%= post.body %>
+        </td>
+
+        <td>
+          <%= post.created_at %>
+        </td>
+
+        <td>
+          <%= post.expires_on %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
